@@ -45,3 +45,6 @@ map <F3> :Uncomm<CR>
 " change how YAML indents
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" enable wrapping for Markdown files
+autocmd BufNewFile,BufRead *.md setlocal wrapmargin=120 wrap linebreak
