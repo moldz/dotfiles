@@ -9,5 +9,12 @@ echo "so $DOTFILES_DIR/vimrc" > ~/.vimrc
 if [[ -f ~/.tmux.conf ]]; then mv -f ~/.tmux.conf ~/.tmux.conf.old; fi
 echo "source-file $DOTFILES_DIR/tmux.conf" > ~/.tmux.conf
 
+# setup zsh
+if [[ -f ~/.zshenv ]]; then mv -f ~/.zshenv ~/.zshenv.old; fi
+echo "source $DOTFILES_DIR/zshenv" > ~/.zshenv
+
 # setup git
-$DOTFILES_DIR/git.sh
+read -p "Run the git setup script (type 'y'): " promptgit
+if [[ "$promptgit" == "y" ]]; then
+    $DOTFILES_DIR/git.sh
+fi
