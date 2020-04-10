@@ -4,6 +4,8 @@ This repository has a collection of useful configuration files for linux.  It cu
 
 - vim
 - tmux
+- zsh
+- git
 
 ## Setup
 
