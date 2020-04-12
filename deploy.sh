@@ -5,6 +5,10 @@ DOTFILES_DIR=$(dirname $(readlink -f $0))
 if [[ -f ~/.vimrc ]]; then mv -f ~/.vimrc ~/.vimrc.old; fi
 echo "so $DOTFILES_DIR/vimrc" > ~/.vimrc
 
+# setup the vim scripts file
+mkdir -p ~/.vim/plugin
+echo "so $DOTFILES_DIR/moldz.vim" > ~/.vim/plugin/moldz.vim
+
 # setup the tmux file
 if [[ -f ~/.tmux.conf ]]; then mv -f ~/.tmux.conf ~/.tmux.conf.old; fi
 echo "source-file $DOTFILES_DIR/tmux.conf" > ~/.tmux.conf
