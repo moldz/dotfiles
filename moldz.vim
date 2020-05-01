@@ -20,6 +20,9 @@ function MarkdownMvlastscreen()
     " prompt user for confirmation
     if input(cmd . " (y/N): ") == 'y'
         silent execute cmd
-        echo "mvlastscreen executed"
     endif
+
+    " redraw the screen in case it goes blank
+    " not sure why this is needed, but it is
+    redraw!
 endfunction
