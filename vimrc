@@ -15,7 +15,6 @@ set ignorecase
 set smartcase
 set nowrap
 set nohls
-set pastetoggle=<F4>                    " toggle the 'paste' option so copying from Stack Overflow does not indent
 
 " personal standard - forget 80, I like 120 columns
 set colorcolumn=120
@@ -34,18 +33,18 @@ filetype indent on
 filetype plugin on
 
 " some useful commands
-command White :%s/  *$//                " remove any trailing white space
-command Comm :'a,.s/^/#/                " insert a comment from the 'a' mark to current line
-command Uncomm :'a,.s/^#//              " remove a comment from the 'a' mark to the current line
+command White :%s/  *$//                                " remove any trailing white space
+command Comm :'a,.s/^/#/                                " insert a comment from the 'a' mark to current line
+command Uncomm :'a,.s/^#//                              " remove a comment from the 'a' mark to the current line
+command ToggleLineNums :set number! relativenumber!     " remove a comment from the 'a' mark to the current line
 
-" map useful commands, notice that I am using some custom scripts
+" map useful commands
 map <F2> :Comm<CR>
 map <F3> :Uncomm<CR>
-map <F5> :call MarkdownMvlastscreen()<CR>
+map <F4> :ToggleLineNums<CR>
+map <F5> :set paste!<CR>
+map <F6> :White<CR>
 
 " change how YAML indents
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" enable wrapping for Markdown files
-autocmd BufNewFile,BufRead *.md setlocal wrap linebreak nolist columns=120 showbreak=… colorcolumn=
